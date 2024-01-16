@@ -9,7 +9,7 @@ import AVFoundation
 
 class VoiceRecorderViewModel : NSObject, ObservableObject, AVAudioPlayerDelegate{
     @Published var isDisplayRemoveVoiceRecorderAlert : Bool
-    @Published var isDisplayErrorAlert : Bool
+    @Published var isDisplayAlert : Bool
     @Published var errorAlertMessage : String
     
     // 음성 메모 녹음 관련 프로퍼티
@@ -40,7 +40,7 @@ class VoiceRecorderViewModel : NSObject, ObservableObject, AVAudioPlayerDelegate
          selectedRecordedFile: URL? = nil
     ) {
         self.isDisplayRemoveVoiceRecorderAlert = isDisplayRemoveVoiceRecorderAlert
-        self.isDisplayErrorAlert = isDisplayErrorAlert
+        self.isDisplayAlert = isDisplayErrorAlert
         self.errorAlertMessage = errorAlertMessage
         self.isRecording = isRecording
         self.isPlaying = isPlaying
@@ -91,7 +91,7 @@ extension VoiceRecorderViewModel {
     }
     
     private func setIsDisplayErrorAlert(_ isDisplay : Bool) {
-        isDisplayErrorAlert = isDisplay
+        isDisplayAlert = isDisplay
     }
     
     private func displayAlert(message : String) {
